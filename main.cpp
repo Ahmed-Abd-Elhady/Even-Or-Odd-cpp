@@ -1,23 +1,52 @@
 #include <iostream>
-#include <limits.h>
 using namespace std;
+
+int user_input;
+int user_choose;
+
+void showcase()
+{
+  cout << "-------/--------------/----\n";
+  cout << "-IS ODD OR EVEN ? APPLACTION-\n";
+  cout << "---------------/-----------\n";
+  cout << "====1-:Test the number : \n";
+  cout << "====2-Exit : \n";
+  cin >> user_choose;
+}
+
+void fonction()
+{
+  showcase();
+  if (user_choose >= 3)
+  {
+    cout << "BAD CHOOSE ! \n\n";
+    fonction();
+  }
+
+  do
+  {
+
+    switch (user_choose)
+    {
+    case 1:
+      int user_input;
+      cout << "Enter Your Number : \n";
+      cin >> user_input;
+      if (user_input % 2 == 0)
+      {
+        cout << "This Number Is Even!!!\n";
+      }
+      else
+      {
+        cout << "This Number Is Odd!!\n";
+      }
+      fonction();
+      break;
+    }
+  } while (user_choose < 1);
+}
 
 int main()
 {
-    cout << "==============================" << endl;
-    cout << "==Is This Number Even Or Odd ?==" << endl;
-    cout << "==============================" << endl;
-
-    cout << "Enter The Number You Want To Know if its odd or even : \n";
-    int user_input;
-    cin >> user_input;
-    cout << "The Number You Enter Is : " << user_input << endl;
-    if (user_input % 2 == 0)
-    {
-        cout << "The : " << user_input << " Is Even \n";
-    }
-    else
-    {
-        cout << "The : " << user_input << " Is Odd \n";
-    }
+  fonction();
 }
